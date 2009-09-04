@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if user %}
+<p>These are your JabberHooks:<p>
+  <ul>
+    {% for hook in hooks %}
+    <li>{{ hook.name }}@jabberhooks.appspotchat.com &rArr; <a href="{{ hook.hook_url }}">{{ hook.hook_url }}</a> <form style="display:inline;" action="/" method="post"><input type="hidden" name="name" value="{{ hook.name }}" /><input type="submit" value="Delete" /></form></li>
+    {% endfor %}
+  </ul>
+  <form action="/" method="post">
+    Hook URL: <input type="text" name="url" /> <input type="submit" value="Create JabberHook" />
+    </form>
+  
+  
+{% else %}
+  <p>JabberHooks lets you receive XMPP messages via HTTP POST (aka <a href="http://webhooks.org">webhooks</a>). You can create a JabberHook that will give you a JID that you can invite to chat and send messages. The contents will be parsed and posted to the URL you specify, similar to a form post.</p>
+  <h2 align="center"><a href="{{ login_url }}">Login</a></h2>
+{% endif %}
+{% endblock %}
