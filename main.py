@@ -11,7 +11,7 @@ from google.appengine.api import urlfetch
 from google.appengine.api import mail
 import time, urllib, os
 
-HOOKAH_URL = "http://hookah.webhooks.org"
+HOOKAH_URL = "http://hookah.progrium.com/dispatch"
 
 def baseN(num,b,numerals="0123456789abcdefghijklmnopqrstuvwxyz"): 
     return ((num == 0) and  "0" ) or (baseN(num // b, b).lstrip("0") + numerals[num % b])
